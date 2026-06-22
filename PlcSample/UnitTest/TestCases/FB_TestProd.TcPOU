@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+  <POU Name="FB_TestProd" Id="{e2a37850-0368-4db9-a7a1-9065adaee9ca}" SpecialFunc="None">
+    <Declaration><![CDATA[{ attribute 'Name':='TB_Prod-Test' }
+{ attribute 'Timeout':='t#20s' }
+{ attribute 'Owner':='TestOwner' }
+FUNCTION_BLOCK FB_TestProd EXTENDS FB_TestCaseBase
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	myFB : SampleLib.FB_Prod;// instance of the function block to be tested
+	expectedValue : UINT;       // value to be expected from this test
+	result: UINT;				// calculated value, actual result of the function block call
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// can of the function block to execute the test: 2 * 2 = 4
+myFB(var1:= 2, var2:= 2, result=> result);
+
+// Explicit assignment of the expected value, as the comparison is performed using the “any” data type
+expectedValue:=4;
+
+// Check the result against the expected value; if it does not match, the error message passed here is displayed
+AssertEqual(expected:= expectedValue, actual:= result, message:= 'Addition with the FB_Sum function block is incorrect!');
+
+// in the event that the result of the comparison matches, confirmation that the test case was successful and that no further tests will be carried out in this function block
+Succeeded();
+]]></ST>
+    </Implementation>
+    <Method Name="CleanUp" Id="{dbc2c251-0820-4004-9560-f1549cb1fb1f}">
+      <Declaration><![CDATA[//Must be implemented if you want to use fastmode
+METHOD CleanUp : BOOL
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CleanUp:=true;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

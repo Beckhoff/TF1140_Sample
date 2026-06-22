@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="FB_Sum" Id="{7e3cb313-c37d-401b-91eb-437d061cc677}" SpecialFunc="None">
+    <Declaration><![CDATA[// Function block for calculating the sum of two values
+FUNCTION_BLOCK FB_Sum
+VAR_INPUT
+	var1: UINT;    // variable 1
+	var2: UINT;    // variable 2
+END_VAR
+VAR_OUTPUT
+	result : UINT; // result
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Calculation of the sum of two values; an error has been deliberately included in this example
+result := var1 - var2;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.18">
+  <POU Name="FB_Diff" Id="{f3285fee-2279-46b8-82c0-7c9368e56014}" SpecialFunc="None">
+    <Declaration><![CDATA[// Function block for calculating the substraction of two values
+FUNCTION_BLOCK FB_Diff
+VAR_INPUT
+	var1: UINT;    // variable 1
+	var2: UINT;    // variable 2
+END_VAR
+VAR_OUTPUT
+	result : UINT; // result
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Calculation of the substration of two values;
+result := var1 - var2;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
