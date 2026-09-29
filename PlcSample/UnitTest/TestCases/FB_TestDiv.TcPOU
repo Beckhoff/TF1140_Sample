@@ -23,7 +23,7 @@ myFB(var1:= 8, var2:= 2, result=> result);
 expectedValue:=4;
 
 // Check the result against the expected value; if it does not match, the error message passed here is displayed
-AssertEqual(expected:= expectedValue, actual:= result, message:= 'Addition with the FB_Sum function block is incorrect!');
+AssertEqual(expected:= expectedValue, actual:= result, message:= 'Division with the FB_Div function block is incorrect!');
 
 // in the event that the result of the comparison matches, confirmation that the test case was successful and that no further tests will be carried out in this function block
 Succeeded();
