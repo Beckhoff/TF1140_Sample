@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="FB_TestProd" Id="{e2a37850-0368-4db9-a7a1-9065adaee9ca}" SpecialFunc="None">
     <Declaration><![CDATA[{ attribute 'Name':='TB_Prod-Test' }
 { attribute 'Timeout':='t#20s' }
 { attribute 'Owner':='TestOwner' }
+{ attribute 'Category':='Math/multiplication and division ' }
 FUNCTION_BLOCK FB_TestProd EXTENDS FB_TestCaseBase
 VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	myFB : SampleLib.FB_Prod;// instance of the function block to be tested
+	myFB : SampleLib.FB_Prod;   // instance of the function block to be tested
 	expectedValue : UINT;       // value to be expected from this test
 	result: UINT;				// calculated value, actual result of the function block call
 END_VAR
@@ -23,11 +24,10 @@ myFB(var1:= 2, var2:= 2, result=> result);
 expectedValue:=4;
 
 // Check the result against the expected value; if it does not match, the error message passed here is displayed
-AssertEqual(expected:= expectedValue, actual:= result, message:= 'Addition with the FB_Sum function block is incorrect!');
+AssertEqual(anyActual:= result, anyExpected:= expectedValue, sMessage:= 'Multiplication with the FB_Prod function block is incorrect!');
 
 // in the event that the result of the comparison matches, confirmation that the test case was successful and that no further tests will be carried out in this function block
-Succeeded();
-]]></ST>
+Succeed();]]></ST>
     </Implementation>
     <Method Name="CleanUp" Id="{dbc2c251-0820-4004-9560-f1549cb1fb1f}">
       <Declaration><![CDATA[//Must be implemented if you want to use fastmode

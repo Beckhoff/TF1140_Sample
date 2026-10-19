@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="FB_TestDiff" Id="{f8793435-50cd-4338-832c-24f46d2a1db5}" SpecialFunc="None">
     <Declaration><![CDATA[{ attribute 'Name':='FB_Diff-Test' }
 { attribute 'Timeout':='t#20s' }
 { attribute 'Owner':='TestOwner' }
+{ attribute 'Category':='Math/addition and subtraction' }
 FUNCTION_BLOCK FB_TestDiff EXTENDS FB_TestCaseBase
 VAR_INPUT
 END_VAR
 VAR_OUTPUT
 END_VAR
 VAR
-	myFB : SampleLib.FB_Diff;// instance of the function block to be tested
+	myFB : SampleLib.FB_Diff;   // instance of the function block to be tested
 	expectedValue : UINT;       // value to be expected from this test
 	result: UINT;				// calculated value, actual result of the function block call
 END_VAR
@@ -23,10 +24,10 @@ myFB(var1:= 4, var2:= 2, result=> result);
 expectedValue:=2;
 
 // Check the result against the expected value; if it does not match, the error message passed here is displayed
-AssertEqual(expected:= expectedValue, actual:= result, message:= 'Subtraction with the FB_Diff function block is incorrect!');
+AssertEqual(anyActual:= result, anyExpected:= expectedValue, sMessage:= 'Subtraction with the FB_Diff function block is incorrect!');
 
 // in the event that the result of the comparison matches, confirmation that the test case was successful and that no further tests will be carried out in this function block
-Succeeded();
+Succeed();
 ]]></ST>
     </Implementation>
     <Method Name="CleanUp" Id="{8ee1f243-553e-4810-a9ba-1d246e444dc1}">

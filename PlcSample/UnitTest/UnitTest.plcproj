@@ -9,7 +9,7 @@
     <WriteProductVersion>true</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>UnitTest</Name>
-    <ProgramVersion>3.1.4026.25</ProgramVersion>
+    <ProgramVersion>3.1.4026.29</ProgramVersion>
     <Application>{c69f199e-c770-4fdf-9da2-ade2ed8334b8}</Application>
     <TypeSystem>{21d9add9-d929-4888-9b31-3da14a03b0a7}</TypeSystem>
     <Implicit_Task_Info>{235b19f3-b0a2-4dcd-af78-7e69d1c5eba5}</Implicit_Task_Info>
@@ -65,12 +65,6 @@
     <PlaceholderReference Include="Tc3_PlcTestFramework">
       <DefaultResolution>Tc3_PlcTestFramework, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_PlcTestFramework</Namespace>
-      <Parameters>
-        <Parameter ListName="PARAM" xmlns="">
-          <Key>MAXTESTCASECOUNT</Key>
-          <Value>500</Value>
-        </Parameter>
-      </Parameters>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>

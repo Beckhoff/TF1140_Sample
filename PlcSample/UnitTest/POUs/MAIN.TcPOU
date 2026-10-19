@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.19">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.21">
   <POU Name="MAIN" Id="{359411d8-4113-43aa-ae2e-7e41eef1cef1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -13,7 +13,7 @@ END_VAR
 //To have the source code for a library’s unit tests directly within the same solution, it is advisable to enable the option “Allow the project to be referenced as a library” in the library project. This option makes it possible to run the tests at any time without having to install the library on the system. It is therefore particularly useful for use in CI/CD pipelines, as the command to install the libraries does not need to be executed. ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// Calling the TestController (which is located in the library and acts as the interface to the clients) 
-Tc3_PlcTestFramework.TestController.TestCtrl();]]></ST>
+Tc3_PlcTestFramework.F_CallTestController();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
